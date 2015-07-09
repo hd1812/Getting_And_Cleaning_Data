@@ -14,6 +14,7 @@
 
 
 ##Downloading Files
+##Note that http is a problem for R in manycases,
 
 ##get and set dir
 ##getwd(),setwd()
@@ -24,18 +25,16 @@
 ##download data from internet
 ##download.file()
 
-
-
 ##Load flat files
 ##read.table()--flexible and robust,may slow, read into RAM,
 ##related: read.csv()
 
-
-
 ##read excel files
 ##read.xlsx(),read.xlsx2()
-
-
+##Useful packages: xlsx, RCurl, XLConnect
+##Have problem in Java in home labtop.
+##run java and r in same mode (32 or 64). 
+##An easy way is to set version of R in Rstudio to match Java version
 
 ##read XML
 ##xmlTreeParse(fileUrl,useInterval=TRUE)
