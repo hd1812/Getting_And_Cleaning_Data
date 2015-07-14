@@ -1,4 +1,7 @@
 ##Q1
+##Carefully follow the instructions on
+##https://class.coursera.org/getdata-030/forum/thread?thread_id=33
+
 library(httr)
 library(XML)
 

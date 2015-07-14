@@ -3,7 +3,7 @@
 ##Webscraping: extract data from HTML code of websites
 ##If read too quickly, IP may be blocked.
 
-##get data off webpages -- raw html file. Hard to read
+##get data off webpages line by line -- raw html file. Hard to read
 con = url("http://scholar.google.com/citations?user=HI-I6C0AAAAJ&hl=en")
 htmlCode = readLines(con)
 close(con)
