@@ -7,19 +7,21 @@ str(x)
 
 ##Q3
 ##The following code does not on ttp PC
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx",destfile="gas.xlsx")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx",destfile="gas.xlsx",mode="wb")
 library(xlsx)
 
-##RCurl package
+##RCurl package, not working
 library(RCurl)
 getURL("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx")
 
 ##XLConnect package
+library(XLConnectJars)
 library(XLConnect)
+library(xlsx)
 Data <- readWorksheet(loadWorkbook("gas.xlsx"),sheet=1,startRow=18,endRow=23,startCol=7,endCol=15)
 
 rowIndex <- 18:23
-cowIndex <- 7:15
+colIndex <- 7:15
 Data <- read.xlsx("gas.xlsx",sheetIndex=1,colIndex=colIndex,rowIndex=rowIndex,mode='wd')
 sum(Data$Zip*Data$Ext,na.rm=T)
 
@@ -27,8 +29,11 @@ sum(Data$Zip*Data$Ext,na.rm=T)
 
 ##XML package
 library(XML)
-fileURL<-"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
+fileURL<-"http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"##'s' is removed from https
 doc <- xmlTreeParse(fileURL,useInternal=TRUE)
+rootNode<-xmlRoot(doc)
+zipcodes<-xpathSApply(rootNode,"//zipcode",xmlValue)
+length(zipcodes[zipcodes==21231])
 
 ##Q5
 ##data.table package
